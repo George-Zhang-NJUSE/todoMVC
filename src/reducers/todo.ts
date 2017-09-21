@@ -1,8 +1,8 @@
-import { Action } from '../actions';
+import { ActionType } from '../actions';
 
-const todoItem = (state = {
+const todoItem = (state: TodoItemType = {
     id: 0, text: '', completed: false
-}, action: Action) => {
+}, action: ActionType) => {
     switch (action.type) {
         case 'ADD_TODO':
             return {
@@ -23,7 +23,7 @@ const todoItem = (state = {
     }
 };
 
-const todoList = (state = [], action: Action) => {
+const todoList = (state: TodoListType = [], action: ActionType) => {
     switch (action.type) {
         case 'ADD_TODO':
             return [...state, todoItem(undefined, action)];
@@ -37,3 +37,9 @@ const todoList = (state = [], action: Action) => {
 };
 
 export default todoList;
+export type TodoItemType = {
+    id: number,
+    text: string,
+    completed: boolean
+};
+export type TodoListType = TodoItemType[];

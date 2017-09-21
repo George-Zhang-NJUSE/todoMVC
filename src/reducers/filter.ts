@@ -1,6 +1,6 @@
-import { Action } from '../actions';
+import { ActionType } from '../actions';
 
-const filter = (state = 'ALL', action: Action) => {
+const filter = (state: FilterValues = FilterValues.ALL, action: ActionType) => {
     switch (action.type) {
         case 'SET_FILTER':
             return action.filter;
@@ -10,3 +10,6 @@ const filter = (state = 'ALL', action: Action) => {
 };
 
 export default filter;
+export enum FilterValues {
+    ALL, ACTIVE, COMPLETED
+}

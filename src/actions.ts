@@ -1,3 +1,5 @@
+import { FilterValues } from './reducers/filter';
+
 let nextTodoId = 0;
 
 export const addTodo = (text: string) => ({
@@ -16,12 +18,12 @@ export const toggleTodo = (id: number) => ({
     id
 });
 
-export const setFilter = (filter: string) => ({
+export const setFilter = (filter: FilterValues) => ({
     type: 'SET_FILTER',
     filter
 });
 
-export type Action = {
+export type ActionType = {
     type: string,
     id?: number,
     text?: string,

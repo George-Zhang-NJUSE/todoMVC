@@ -5,7 +5,7 @@ function App() {
     return (
         <div>
             <AddTodo />
-            <TodoList />
+            <TodoListContainer />
             <Filter />
         </div>
     );
