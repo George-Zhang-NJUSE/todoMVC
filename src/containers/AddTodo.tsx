@@ -1,8 +1,9 @@
-import { connect } from 'react-redux';
+import { connect, DispatchProp, Dispatch } from 'react-redux';
 import * as React from 'react';
-import { addTodo } from '../actions';
+import { addTodo, ActionType } from '../actions';
 
-const content = ({ dispatch }) => {
+// 只输出，不接受redux输入
+const content = ({ dispatch }: DispatchProp<ActionType>) => {
     let input: HTMLInputElement;
     return (
         <div>
@@ -13,7 +14,7 @@ const content = ({ dispatch }) => {
                     if (!text) {
                         return;
                     }
-                    dispatch(addTodo(text));
+                    (dispatch as Dispatch<ActionType>)(addTodo(text));
                     input.value = '';
                 }}
             >

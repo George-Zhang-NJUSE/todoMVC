@@ -28,9 +28,11 @@ const todoList = (state: TodoListType = [], action: ActionType) => {
         case 'ADD_TODO':
             return [...state, todoItem(undefined, action)];
         case 'DELETE_TODO':
-            return state.filter((item) => item.id !== action.id);
+            return state.filter(item => item.id !== action.id);
         case 'TOGGLE_TODO':
             return state.map((item) => todoItem(item, action));
+        case 'CLEAR_COMPLETED':
+            return state.filter(item => !item.completed);
         default:
             return state;
     }

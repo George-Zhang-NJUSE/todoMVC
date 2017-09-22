@@ -23,6 +23,10 @@ export const setFilter = (filter: FilterValues) => ({
     filter
 });
 
+export const clearCompleted = () => ({
+    type: 'CLEAR_COMPLETED'
+});
+
 export type ActionType = {
     type: string,
     id?: number,

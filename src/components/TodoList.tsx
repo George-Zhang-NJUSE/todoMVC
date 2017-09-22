@@ -1,6 +1,24 @@
 import * as React from 'react';
 import { TodoListType } from '../reducers/todo';
+import Todo from './Todo';
 
-export default function TodoList(props: TodoListType) {
-    
+type TodoListPropsType = {
+    list: TodoListType,
+    handleToggle: (id: number) => void,
+    handleDelete: (id: number) => void
+};
+
+export default function TodoList({ list, handleToggle, handleDelete }: TodoListPropsType) {
+    return (
+        <ul>
+            {list.map(todoItem => (
+                <Todo    
+                    key={todoItem.id}
+                    onToggle={handleToggle}
+                    onDelete={handleDelete}
+                    {...todoItem}
+                />
+            ))}
+        </ul>
+    );
 }

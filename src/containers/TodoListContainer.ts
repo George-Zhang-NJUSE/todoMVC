@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
-import * as React from 'react';
-import { toggleTodo } from '../actions';
+import { connect, Dispatch } from 'react-redux';
+import { toggleTodo, deleteTodo, ActionType } from '../actions';
 import { TodoListType } from '../reducers/todo';
 import { FilterValues } from '../reducers/filter';
+import { Store } from '../reducers/mainReducer';
 import TodoList from '../components/TodoList';
 
 const getVisibleTodos = (allTodos: TodoListType, filter: FilterValues) => {
@@ -18,9 +18,19 @@ const getVisibleTodos = (allTodos: TodoListType, filter: FilterValues) => {
     }
 };
 
-const mapStateToProps = (completeState: {
-    todoList: TodoListType,
-    filter: FilterValues
-}) => ({
+const mapStateToProps = (completeState: Store) => ({
     list: getVisibleTodos(completeState.todoList, completeState.filter)
 });
+
+const mapDispatchToProps = (dispatch: Dispatch<ActionType>) => ({
+    handleToggle: (id: number) => {
+        dispatch(toggleTodo(id));
+    },
+    handleDelete: (id: number) => {
+        dispatch(deleteTodo(id));
+    }
+});
+
+const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);
+
+export default TodoListContainer;
