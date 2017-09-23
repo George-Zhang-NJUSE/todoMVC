@@ -7,10 +7,13 @@ import FooterContainer from '../containers/FooterContainer';
 function App() {
     return (
         <div>
-            <AddTodo />
-            <TodoListContainer />
-            <FooterContainer />
-        </div>
+            <header>todos</header> 
+            <div className="app">                 
+                <AddTodo />
+                <TodoListContainer />
+                <FooterContainer />
+            </div>
+        </div>    
     );
 }
 

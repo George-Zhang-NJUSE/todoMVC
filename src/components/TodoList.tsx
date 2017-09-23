@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { TodoListType } from '../reducers/todo';
 import Todo from './Todo';
+import './TodoList.css';
 
 type TodoListPropsType = {
     list: TodoListType,
@@ -10,7 +11,7 @@ type TodoListPropsType = {
 
 export default function TodoList({ list, handleToggle, handleDelete }: TodoListPropsType) {
     return (
-        <ul>
+        <ul className="todo-list">
             {list.map(todoItem => (
                 <Todo    
                     key={todoItem.id}

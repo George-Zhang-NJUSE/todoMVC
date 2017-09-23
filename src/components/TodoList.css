@@ -1,0 +1,7 @@
+.todo-list{
+    list-style: none;
+}
+
+.todo-list > li {
+    border-bottom: 1px solid #e0e0e0;
+}
