@@ -1,0 +1,26 @@
+.add-todo {
+    height: 40px;
+}
+
+.add-todo > * {
+    border: 0px;
+    outline: none;
+    height: 100%;
+}
+
+.add-todo > input {
+    width: 80%;
+}
+
+.add-todo > button {
+    width: 20%;
+    color: white;
+    background: rgb(35, 88, 187);
+    transition: all 0.4s;
+    border-radius: 5px;
+}
+
+.add-todo > button:hover{
+    background: rgb(45, 112, 238);
+    cursor: pointer;
+}

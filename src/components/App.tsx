@@ -4,17 +4,15 @@ import AddTodo from '../containers/AddTodo';
 import TodoListContainer from '../containers/TodoListContainer';
 import FooterContainer from '../containers/FooterContainer';
 
-function App() {
+export default function App() {
     return (
         <div>
-            <header>todos</header> 
-            <div className="app">                 
+            <header>todos</header>
+            <div className="app">
                 <AddTodo />
                 <TodoListContainer />
                 <FooterContainer />
             </div>
-        </div>    
+        </div>
     );
 }
-
-export default App;

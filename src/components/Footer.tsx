@@ -2,23 +2,24 @@ import * as React from 'react';
 import { FilterValues } from '../reducers/filter';
 
 type FooterPropsType = {
-    itemsLeft: number;
+    unfinishedItemNum: number;
     filter: FilterValues;
     hasCompletedItems: boolean;
+    hasData: boolean,
     onSetFilter: (filter: FilterValues) => void;
     onClearCompleted: () => void;
 };
 
 export default function Footer({
-    itemsLeft, filter, hasCompletedItems, onSetFilter, onClearCompleted
+    unfinishedItemNum, filter, hasCompletedItems, onSetFilter, onClearCompleted, hasData
     }: FooterPropsType) {
     // 将enum转化为字符串数组
     const arrayLikeEnum = { ...FilterValues, length: Object.getOwnPropertyNames(FilterValues).length / 2 };
     const enumArray: string[] = Array.prototype.map.call(arrayLikeEnum, (v: string) => v);
 
     return (
-        <div>
-            <label>{itemsLeft} item{itemsLeft !== 1 ? 's' : ''} left</label>
+        <div style={hasData ? {} : { display: 'none' }}>
+            <label>{unfinishedItemNum} item{unfinishedItemNum !== 1 ? 's' : ''} left</label>
             <ul>
                 {enumArray.map((value, index) =>
                     (<li

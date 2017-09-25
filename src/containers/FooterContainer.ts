@@ -5,9 +5,10 @@ import { setFilter, clearCompleted, ActionType } from '../actions';
 import Footer from '../components/Footer';
 
 const mapStateToProps = (completeState: Store) => ({
-    itemsLeft: completeState.todoList.filter(item => !item.completed).length,
+    unfinishedItemNum: completeState.todoList.filter(item => !item.completed).length,
     filter: completeState.filter,
-    hasCompletedItems: !!completeState.todoList.find(item => item.completed)
+    hasCompletedItems: !!completeState.todoList.find(item => item.completed),
+    hasData: completeState.todoList.length > 0
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<ActionType>) => ({

@@ -19,7 +19,7 @@ const getVisibleTodos = (allTodos: TodoListType, filter: FilterValues) => {
 };
 
 const mapStateToProps = (completeState: Store) => ({
-    list: getVisibleTodos(completeState.todoList, completeState.filter)
+    visibleList: getVisibleTodos(completeState.todoList, completeState.filter),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<ActionType>) => ({

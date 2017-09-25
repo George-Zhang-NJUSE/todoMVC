@@ -1,6 +1,7 @@
 import { connect, DispatchProp, Dispatch } from 'react-redux';
 import * as React from 'react';
 import { addTodo, ActionType } from '../actions';
+import './AddTodo.css';
 
 // 只输出，不接受redux输入
 const content = ({ dispatch }: DispatchProp<ActionType>) => {
@@ -8,6 +9,7 @@ const content = ({ dispatch }: DispatchProp<ActionType>) => {
     return (
         <div>
             <form
+                className="add-todo"
                 onSubmit={e => {
                     e.preventDefault();
                     let text: string = input.value.trim();
