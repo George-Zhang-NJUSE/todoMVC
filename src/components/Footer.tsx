@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FilterValues } from '../reducers/filter';
+import './Footer.css';
 
 type FooterPropsType = {
     unfinishedItemNum: number;
@@ -18,9 +19,9 @@ export default function Footer({
     const enumArray: string[] = Array.prototype.map.call(arrayLikeEnum, (v: string) => v);
 
     return (
-        <div style={hasData ? {} : { display: 'none' }}>
+        <div style={hasData ? {} : { display: 'none' }} className="footer">
             <label>{unfinishedItemNum} item{unfinishedItemNum !== 1 ? 's' : ''} left</label>
-            <ul>
+            <ul className="filters">
                 {enumArray.map((value, index) =>
                     (<li
                         key={index}
@@ -32,6 +33,7 @@ export default function Footer({
             <button
                 style={{ visibility: hasCompletedItems ? 'visible' : 'hidden' }}
                 onClick={onClearCompleted}
+                className="clear-completed"
             >Clear Completed
             </button>
         </div>

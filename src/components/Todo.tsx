@@ -12,9 +12,9 @@ type TodoPropsType = TodoItemType & ToggleHandlerType;
 export default function Todo({ id, text, completed, onToggle, onDelete }: TodoPropsType) {
     return (
         <li className="todo-item">
-            <input type="checkbox" defaultChecked={completed} onClick={() => onToggle(id)} />
-            <label>{text}</label>
-            <button onClick={() => onDelete(id)}>X</button>
+            <input type="checkbox" className="check" defaultChecked={completed} onClick={() => onToggle(id)} />
+            <label className={'text' + (completed ? ' completed' : '')} >{text}</label>
+            <button className="delete" onClick={() => onDelete(id)}>X</button>
         </li>
     );
 }

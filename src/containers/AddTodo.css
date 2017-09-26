@@ -4,7 +4,6 @@
 
 .add-todo > * {
     border: 0px;
-    outline: none;
     height: 100%;
 }
 
@@ -20,7 +19,11 @@
     border-radius: 5px;
 }
 
-.add-todo > button:hover{
+.add-todo > button:hover {
     background: rgb(45, 112, 238);
     cursor: pointer;
+}
+
+.add-todo > button:active {
+    background: rgb(85, 144, 255)
 }

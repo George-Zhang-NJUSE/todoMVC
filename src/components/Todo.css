@@ -1,5 +1,40 @@
 .todo-item {
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
+    height: 36px;
+}
+
+.todo-item > .check {
+    height: 24px;
+    width: 24px;
+    margin: 0;
+}
+
+.todo-item > .check:hover {
+    cursor: pointer;
+}
+
+.todo-item > .text {
+    flex-grow: 1;
+    margin-left: 10px;
+    transition: all 0.4s;
+}
+
+.todo-item > .completed {
+    text-decoration: line-through;
+    color: #e0e0e0;
+}
+
+.todo-item > .delete {
+    background: white;
+    border: 0;
+    color: rgba(175, 47, 47, 0.5);
+    transition: color 0.3s;
+}
+
+.todo-item > .delete:hover {
+    cursor: pointer;
+    color: rgba(175, 47, 47, 0.9);
 }
 
